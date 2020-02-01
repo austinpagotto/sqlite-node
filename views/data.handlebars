@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>data page</title>
+   <script src="https://d3js.org/d3.v5.min.js"></script>
+
+</head>
+<body>
+   <a href="/" class="btn btn-light mt-4">Go Back</a>
+   <ul class='list-group'>
+    {{#each data}}
+    <li>{{this.id}}:{{this.name}}</li>
+    {{/each}}
+</ul>
+</body>
+<script>
+    const data = "{{data}}"
+    console.log(data)
+    
+    d3.select('body').style('background-color','black')
+
+</script>
+</html>
