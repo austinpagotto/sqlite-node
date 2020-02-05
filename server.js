@@ -5,19 +5,21 @@ const exphbs = require("express-handlebars");
 const port = 8000;
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+
 app.set("view engine", "handlebars");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use(express.static("public"));
+app.use(express.static(__dirname+"/public"));
 
 app.get("/", (req, res) => res.render("index"));
 
 app.get("/data", (req, res) => {
   getdata(parseInt(req.query.id)).then(data =>
     res.render("data", {
-      data
+      data:encodeURIComponent(JSON.stringify(data)),
+      htmlData:data
     })
   );
 });

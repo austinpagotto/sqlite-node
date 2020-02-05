@@ -11,16 +11,16 @@
 <body>
    <a href="/" class="btn btn-light mt-4">Go Back</a>
    <ul class='list-group'>
-    {{#each data}}
+    {{#each htmlData}}
     <li>{{this.id}}:{{this.name}}</li>
     {{/each}}
 </ul>
 </body>
 <script>
-    const data = "{{data}}"
-    console.log(data)
-    
-    d3.select('body').style('background-color','black')
+  const decodedJson = decodeURIComponent("{{{data}}}");
+  const jsonObj = JSON.parse(decodedJson);
+
+  console.log(jsonObj)
 
 </script>
 </html>
