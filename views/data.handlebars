@@ -13,10 +13,12 @@
    <ul class='list-group'>
     {{#each htmlData}}
     <li>{{this.id}}:{{this.name}}</li>
+    {{calculation 50}}
     {{/each}}
 </ul>
 </body>
 <script>
+
   const decodedJson = decodeURIComponent("{{{data}}}");
   const jsonObj = JSON.parse(decodedJson);
 
